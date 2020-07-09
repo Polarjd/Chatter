@@ -49,14 +49,26 @@ client.on('message', message => {
             .addField('c!chat', 'Comes up with a conversation starter')
             .addField('c!8ball', 'Chatter will answer your questions!')
             .addField('c!info', 'Information about Chatter')
-            .addField('c!me', 'Shows info about you [WIP]')
+            .addField('c!me', 'Shows info about you')
             .addField('c!serverinfo', 'Information about the current server you are in')
+            .addField('c!moderation', 'Shows you information about moderation commands')
             .setThumbnail('https://i.imgur.com/BsHKnY4.jpg')
             .setColor(0x85D7FA)
             .setTimestamp()
             .setFooter('Made and developed by Polarbeards', 'https://i.imgur.com/0e1XxhT.jpg?1')
             message.channel.sendEmbed(helpcmd);
         break;
+
+        case 'moderation':
+            const modcmd = new Discord.RichEmbed()
+            .setTitle('Moderation with Chatter')
+            .setDescription('You need to create a channel called "Incidents" for Chatter to log all moderation actions.')
+            .setColor(0x85D7FA)
+            .setTimestamp()
+            .setThumbnail("https://i.imgur.com/f2DMrTX.png")
+            .addField('c!kick', 'Kick a specified member')
+            .addField('c!ban', 'Ban a specified member')
+            message.channel.sendEmbed(modcmd);
 
         case 'me':
             const mecmd = new Discord.RichEmbed()
@@ -175,32 +187,7 @@ client.on('message', message => {
             banChannel.send(banEmbed);
         break;
 
-        case 'report':
-            let rUser = message.guild.member(message.mentions.user.first() || message.guild.members.get(args[0]));
-            if(!rUser) return message.channel.send("Can't find user");
-            let reason = args.join(" ").slice(22);
-
-            let reportEmbed = new Discord.RichEmbed()
-            .setTitle("Reports")
-            .setColor("e56b0")
-            .addField("Reported User", `${rUser} with ID ${rUser.id}`)
-            .addField("Reported By", `${message.author} with ID ${message.author.id}`)
-            .addField("Reported In", message.channel)
-            .addField("Time", message.createdAt)
-            .addField("Reason", reason);
-
-            let reportsChannel = message.guild.channels.find(`name`, "incidents");
-            if(!reportsChannel) return message.channel.send("Can't find incidents channel or missing permissions");
-
-
-            message.delete().catch(O_o=>{});
-            reportsChannel.send(reportEmbed);
-
-        break;
-
-
-
-
+       
 
     }
 
