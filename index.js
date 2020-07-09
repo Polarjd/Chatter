@@ -124,7 +124,7 @@ client.on('message', message => {
             if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot kick that user");
 
             let kickEmbed = new Discord.RichEmbed()
-            .setDescription("~kick~")
+            .setTitle("Kick")
             .setColor("#e56b00")
             .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
             .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
@@ -137,6 +137,31 @@ client.on('message', message => {
 
             message.guild.member(kUser).kick(kReason);
             kickChannel.send(kickEmbed);
+        break;
+
+        case 'ban':
+            let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+            if(!bUser) message.channel.send("Can't find user");
+            let bReason = args.join(" ").slice(22);
+            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.send("You do not have permission for that");
+            if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot ban that user");
+
+            let banEmbed = new Discord.RichEmbed()
+            .setTitle("Ban")
+            .setColor("#bc0000")
+            .addField("Banned User", `${bUser} with ID ${bUser.id}`)
+            .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
+            .addField("Banned In", message.channel)
+            .addField("Time", message.createdAt)
+            .addField("Reason", bReason);
+
+            let banChannel = message.guild.channels.find(`name`, "incidents");
+            if(!banChannel) return message.channel.send("Can't find incidents channel or permission to the channel");
+
+            message.guild.member(bUser).ban(bReason);
+            banChannel.send(banEmbed);
+        break;
+
 
 
 
