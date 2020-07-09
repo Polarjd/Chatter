@@ -5,17 +5,17 @@ const ytdl = require("ytdl-core");
 const helpcmd = require('discord.js');
 const PREFIX = 'c!';
 const activities_list = [
-    "with the &help command.", 
-    "with the developers console",
-    "with some code", 
-    "with JavaScript"
-    ]; // creates an arraylist containing phrases you want your bot to switch through.
+    "with other bots [c!help]", 
+    "with chats [c!help]",
+    "with some code [c!help]", 
+    "with JavaScript [c!help]" 
+    ];
 
 client.on('ready', () => {
     setInterval(() => {
-        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5).
-        client.user.setActivity(activities_list[index]); // sets bot's activities to one of the phrases in the arraylist.
-    }, 10000); // Runs this every 10 seconds.
+        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
+        client.user.setActivity(activities_list[index]);
+    }, 10000);
 });
 
 // Functions
