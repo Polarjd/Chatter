@@ -4,6 +4,19 @@ const client = new Discord.Client();
 const ytdl = require("ytdl-core");
 const helpcmd = require('discord.js');
 const PREFIX = 'c!';
+const activities_list = [
+    "with the &help command.", 
+    "with the developers console",
+    "with some code", 
+    "with JavaScript"
+    ]; // creates an arraylist containing phrases you want your bot to switch through.
+
+client.on('ready', () => {
+    setInterval(() => {
+        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5).
+        client.user.setActivity(activities_list[index]); // sets bot's activities to one of the phrases in the arraylist.
+    }, 10000); // Runs this every 10 seconds.
+});
 
 // Functions
 function emoji (id) {
@@ -18,7 +31,7 @@ var servers = {};
 // Bot activity
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setActivity('WIP! [c!help]');
+    //client.user.setActivity('out for dead chats [c!help]', {type: "WATCHING"});
   });
 
 
