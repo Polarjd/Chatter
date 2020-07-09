@@ -51,15 +51,18 @@ client.on('message', message => {
             .addField('c!info', 'Information about Chatter')
             .addField('c!me', 'Shows info about you')
             .addField('c!serverinfo', 'Information about the current server you are in')
-            .addField('c!moderation', 'Shows you information about moderation commands')
-            .setThumbnail('https://i.imgur.com/BsHKnY4.jpg')
+            .addField('c!help main', 'Shows you a list of the main commands Chatter has to offer')
+            .addField('c!help fun', 'A list of some fun commands such as 8ball and Truth Or Dare')
+            .addField('c!help moderation', 'Shows you information about moderation commands')
+            .addField('c!help info', 'List of useful commands for information')
+            .setThumbnail('https://i.imgur.com/A6F2b0J.png')
             .setColor(0x85D7FA)
             .setTimestamp()
             .setFooter('Made and developed by Polarbeards', 'https://i.imgur.com/0e1XxhT.jpg?1')
             message.channel.sendEmbed(helpcmd);
         break;
 
-        case 'moderation':
+        case 'help moderation':
             const modcmd = new Discord.RichEmbed()
             .setTitle('Moderation with Chatter')
             .setDescription('You need to create a channel called "Incidents" for Chatter to log all moderation actions.')
@@ -69,6 +72,20 @@ client.on('message', message => {
             .addField('c!kick', 'Kick a specified member')
             .addField('c!ban', 'Ban a specified member')
             message.channel.sendEmbed(modcmd);
+        break;
+
+        case 'help main':
+            const maincmd = new Discord.RichEmbed()
+            .setTitle('Main commands of Chatter')
+            .setDescription('These are the main commands that you can use with Chatter')
+            .setColor(0x85D7FA)
+            .setTimestamp()
+            .setThumbnail("https://i.imgur.com/yORSGJ9.png")
+            .addField('c!chat', 'Comes up with a conversation starter')
+            .addField('c!help', 'Shows you all command categories')
+            message.channel.sendEmbed(maincmd);
+
+        break;
 
         case 'me':
             const mecmd = new Discord.RichEmbed()
