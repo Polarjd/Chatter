@@ -178,7 +178,7 @@ client.on('message', message => {
         case 'report':
             let rUser = message.guild.member(message.mentions.user.first() || message.guild.members.get(args[0]));
             if(!rUser) return message.channel.send("Can't find user");
-            let reason =args.join(" ").slice(22);
+            let reason = args.join(" ").slice(22);
 
             let reportEmbed = new Discord.RichEmbed()
             .setTitle("Reports")
@@ -195,7 +195,7 @@ client.on('message', message => {
 
             message.delete().catch(O_o=>{});
             reportsChannel.send(reportEmbed);
-            
+
         break;
 
 
