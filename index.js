@@ -175,6 +175,29 @@ client.on('message', message => {
             banChannel.send(banEmbed);
         break;
 
+        case 'report':
+            let rUser = message.guild.member(message.mentions.user.first() || message.guild.members.get(args[0]));
+            if(!rUser) return message.channel.send("Can't find user");
+            let reason =args.join(" ").slice(22);
+
+            let reportEmbed = new Discord.RichEmbed()
+            .setTitle("Reports")
+            .setColor("e56b0")
+            .addField("Reported User", `${rUser} with ID ${rUser.id}`)
+            .addField("Reported By", `${message.author} with ID ${message.author.id}`)
+            .addField("Reported In", message.channel)
+            .addField("Time", message.createdAt)
+            .addField("Reason", reason);
+
+            let reportsChannel = message.guild.channels.find(`name`, "incidents");
+            if(!reportsChannel) return message.channel.send("Can't find incidents channel or missing permissions");
+
+
+            message.delete().catch(O_o=>{});
+            reportsChannel.send(reportEmbed);
+            
+        break;
+
 
 
 
