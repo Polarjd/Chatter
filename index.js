@@ -6,9 +6,9 @@ const helpcmd = require('discord.js');
 const PREFIX = 'c!';
 const { isBuffer } = require('util');
 const activities_list = [
-    "to the community [c!help]", {type: "LISTENING"},
+    "to the community [c!help]",
     "with chats [c!help]",
-    "over Discord [c!help]", {type: "WATCHING"},
+    "over Discord [c!help]",
     "with JavaScript [c!help]"
     ];
 
