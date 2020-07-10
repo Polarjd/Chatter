@@ -6,10 +6,10 @@ const helpcmd = require('discord.js');
 const PREFIX = 'c!';
 const { isBuffer } = require('util');
 const activities_list = [
-    "with other bots [c!help]", 
+    "to the community [c!help]", {type: "LISTENING"},
     "with chats [c!help]",
-    "with some code [c!help]", 
-    "with JavaScript [c!help]" 
+    "over Discord [c!help]", {type: "WATCHING"},
+    "with JavaScript [c!help]"
     ];
 
 client.on('ready', () => {
@@ -57,24 +57,18 @@ client.on('message', message => {
             const helpcmd = new Discord.RichEmbed()
             .setTitle('Commands:')
             .setDescription(':warning: WORK IN PROGRESS :warning: ')
-            .addField('c!help', 'This message with a list of all commands')
-            .addField('c!chat', 'Comes up with a conversation starter')
-            .addField('c!8ball', 'Chatter will answer your questions!')
-            .addField('c!info', 'Information about Chatter')
-            .addField('c!me', 'Shows info about you')
-            .addField('c!serverinfo', 'Information about the current server you are in')
-            .addField('c!help main', 'Shows you a list of the main commands Chatter has to offer')
-            .addField('c!help fun', 'A list of some fun commands such as 8ball and Truth Or Dare')
-            .addField('c!help moderation', 'Shows you information about moderation commands')
-            .addField('c!help info', 'List of useful commands for information')
-            .setThumbnail('https://i.imgur.com/A6F2b0J.png')
+            .addField('c!help-main', 'Shows you a list of the main commands Chatter has to offer')
+            .addField('c!help-fun', 'A list of some fun commands such as 8ball and Truth Or Dare')
+            .addField('c!help-moderate', 'Shows you information about moderation commands')
+            .addField('c!help-info', 'List of useful commands for information')
+            .setThumbnail('https://i.imgur.com/a8jqe4s.png')
             .setColor(0x85D7FA)
             .setTimestamp()
             .setFooter('Made and developed by Polarbeards', 'https://i.imgur.com/0e1XxhT.jpg?1')
             message.channel.sendEmbed(helpcmd);
         break;
 
-        case 'help moderation':
+        case 'help-moderate':
             const modcmd = new Discord.RichEmbed()
             .setTitle('Moderation with Chatter')
             .setDescription('You need to create a channel called "Incidents" for Chatter to log all moderation actions.')
@@ -86,16 +80,42 @@ client.on('message', message => {
             message.channel.sendEmbed(modcmd);
         break;
 
-        case 'help main':
+        case 'help-main':
             const maincmd = new Discord.RichEmbed()
             .setTitle('Main commands of Chatter')
             .setDescription('These are the main commands that you can use with Chatter')
             .setColor(0x85D7FA)
             .setTimestamp()
-            .setThumbnail("https://i.imgur.com/yORSGJ9.png")
+            .setThumbnail("https://i.imgur.com/ncivXNx.png")
             .addField('c!chat', 'Comes up with a conversation starter')
             .addField('c!help', 'Shows you all command categories')
             message.channel.sendEmbed(maincmd);
+
+        break;
+
+        case 'help-info':
+            const infocmd = new Discord.RichEmbed()
+            .setTitle('Infomramtion Commands')
+            .setDescription('These commands shows you information about a variety of elements')
+            .setColor(0x85D7FA)
+            .setTimestamp()
+            .setThumbnail("https://i.imgur.com/zWMed1g.png")
+            .addField('c!info', 'Information about Chatter')
+            .addField('c!serverinfo', 'Information about the current server you are in')
+            .addField('c!me', 'Shows info about you')
+            message.channel.sendEmbed(infocmd);
+
+        break;
+
+        case 'help-fun':
+            const funcmd = new Discord.RichEmbed()
+            .setTitle('Fun Commands')
+            .setDescription('Fun commands for the whole server!')
+            .setColor(0x85D7FA)
+            .setTimestamp()
+            .setThumbnail("https://i.imgur.com/hghSEYj.png")
+            .addField('c!8ball', 'Chatter will answer your questions!')
+            message.channel.sendEmbed(funcmd);
 
         break;
 
