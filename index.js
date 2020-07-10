@@ -46,21 +46,14 @@ client.on('message', message => {
 
     switch (args[0]) {
 
-        default:
-            const defaultmsg = new Discord.RichEmbed()
-            .setTitle('This command does not exist!')
-            .addField('Use c!help for a list with all commands')
-            message.channel.sendEmbed(defaultmsg);
-        break;
-
         case "help":
             const helpcmd = new Discord.RichEmbed()
             .setTitle('Commands:')
             .setDescription(':warning: WORK IN PROGRESS :warning: ')
-            .addField('c!help-main', 'Shows you a list of the main commands Chatter has to offer')
-            .addField('c!help-fun', 'A list of some fun commands such as 8ball and Truth Or Dare')
-            .addField('c!help-moderate', 'Shows you information about moderation commands')
-            .addField('c!help-info', 'List of useful commands for information')
+            .addField('c!helpmain', 'Shows you a list of the main commands Chatter has to offer')
+            .addField('c!helpfun', 'A list of some fun commands such as 8ball and Truth Or Dare')
+            .addField('c!helpmoderate', 'Shows you information about moderation commands')
+            .addField('c!helpinfo', 'List of useful commands for information')
             .setThumbnail('https://i.imgur.com/a8jqe4s.png')
             .setColor(0x85D7FA)
             .setTimestamp()
@@ -68,7 +61,7 @@ client.on('message', message => {
             message.channel.sendEmbed(helpcmd);
         break;
 
-        case 'help-moderate':
+        case 'helpmoderate':
             const modcmd = new Discord.RichEmbed()
             .setTitle('Moderation with Chatter')
             .setDescription('You need to create a channel called "Incidents" for Chatter to log all moderation actions.')
@@ -80,7 +73,7 @@ client.on('message', message => {
             message.channel.sendEmbed(modcmd);
         break;
 
-        case 'help-main':
+        case 'helpmain':
             const maincmd = new Discord.RichEmbed()
             .setTitle('Main commands of Chatter')
             .setDescription('These are the main commands that you can use with Chatter')
@@ -93,7 +86,7 @@ client.on('message', message => {
 
         break;
 
-        case 'help-info':
+        case 'helpinfo':
             const infocmd = new Discord.RichEmbed()
             .setTitle('Infomramtion Commands')
             .setDescription('These commands shows you information about a variety of elements')
@@ -107,7 +100,7 @@ client.on('message', message => {
 
         break;
 
-        case 'help-fun':
+        case 'helpfun':
             const funcmd = new Discord.RichEmbed()
             .setTitle('Fun Commands')
             .setDescription('Fun commands for the whole server!')
