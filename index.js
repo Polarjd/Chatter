@@ -39,9 +39,6 @@ client.on('ready', () => {
 // Commands
 client.on('message', message => {
 
-    if (message.author.bot) return;
-    if (message.content.indexOf(PREFIX) !== 0) return;
-
     let args = message.content.substring(PREFIX.length).split(" ");
 
     switch (args[0]) {
