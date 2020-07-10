@@ -184,7 +184,7 @@ client.on('message', message => {
             let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
             if(!kUser) message.channel.send("Can't find user");
             let kReason = args.join(" ").slice(22);
-            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.send("You do not have permission for that");
+            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You do not have permission for that");
             if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot kick that user");
 
             let kickEmbed = new Discord.RichEmbed()
@@ -207,7 +207,7 @@ client.on('message', message => {
             let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
             if(!bUser) message.channel.send("Can't find user");
             let bReason = args.join(" ").slice(22);
-            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.send("You do not have permission for that");
+            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You do not have permission for that");
             if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot ban that user");
 
             let banEmbed = new Discord.RichEmbed()
