@@ -39,6 +39,8 @@ client.on('ready', () => {
 // Commands
 client.on('message', message => {
 
+    
+
     let args = message.content.substring(PREFIX.length).split(" ");
 
     switch (args[0]) {
@@ -59,7 +61,7 @@ client.on('message', message => {
         break;
 
         case 'helpmoderate':
-            const modcmd = new Discord.RichEmbed()
+            const modabout = new Discord.RichEmbed()
             .setTitle('Moderation with Chatter')
             .setDescription('You need to create a channel called "Incidents" for Chatter to log all moderation actions.')
             .setColor(0x85D7FA)
@@ -67,11 +69,11 @@ client.on('message', message => {
             .setThumbnail("https://i.imgur.com/f2DMrTX.png")
             .addField('c!kick', 'Kick a specified member')
             .addField('c!ban', 'Ban a specified member')
-            message.channel.sendEmbed(modcmd);
+            message.channel.sendEmbed(modabout);
         break;
 
         case 'helpmain':
-            const maincmd = new Discord.RichEmbed()
+            const mainabout = new Discord.RichEmbed()
             .setTitle('Main commands of Chatter')
             .setDescription('These are the main commands that you can use with Chatter')
             .setColor(0x85D7FA)
@@ -79,12 +81,12 @@ client.on('message', message => {
             .setThumbnail("https://i.imgur.com/ncivXNx.png")
             .addField('c!chat', 'Comes up with a conversation starter')
             .addField('c!help', 'Shows you all command categories')
-            message.channel.sendEmbed(maincmd);
+            message.channel.sendEmbed(mainabout);
 
         break;
 
         case 'helpinfo':
-            const infocmd = new Discord.RichEmbed()
+            const infoabout = new Discord.RichEmbed()
             .setTitle('Infomramtion Commands')
             .setDescription('These commands shows you information about a variety of elements')
             .setColor(0x85D7FA)
@@ -93,19 +95,19 @@ client.on('message', message => {
             .addField('c!info', 'Information about Chatter')
             .addField('c!serverinfo', 'Information about the current server you are in')
             .addField('c!me', 'Shows info about you')
-            message.channel.sendEmbed(infocmd);
+            message.channel.sendEmbed(infoabout);
 
         break;
 
         case 'helpfun':
-            const funcmd = new Discord.RichEmbed()
+            const funabout = new Discord.RichEmbed()
             .setTitle('Fun Commands')
             .setDescription('Fun commands for the whole server!')
             .setColor(0x85D7FA)
             .setTimestamp()
             .setThumbnail("https://i.imgur.com/hghSEYj.png")
             .addField('c!8ball', 'Chatter will answer your questions!')
-            message.channel.sendEmbed(funcmd);
+            message.channel.sendEmbed(funabout);
 
         break;
 
