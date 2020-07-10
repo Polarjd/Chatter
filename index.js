@@ -6,10 +6,10 @@ const helpcmd = require('discord.js');
 const PREFIX = 'c!';
 const { isBuffer } = require('util');
 const activities_list = [
-    "with other bots! [c!help]",
-    "with chats! [c!help]",
-    "with Discord! [c!help]",
-    "with JavaScript! [c!help]"
+    "with other bots [c!help]", 
+    "with chats [c!help]",
+    "with some code [c!help]", 
+    "with JavaScript [c!help]" 
     ];
 
 client.on('ready', () => {
@@ -45,6 +45,13 @@ client.on('message', message => {
     let args = message.content.substring(PREFIX.length).split(" ");
 
     switch (args[0]) {
+
+        default:
+            const defaultmsg = new Discord.RichEmbed()
+            .setTitle('This command does not exist!')
+            .addField('Use c!help for a list with all commands')
+            message.channel.sendEmbed(defaultmsg);
+        break;
 
         case "help":
             const helpcmd = new Discord.RichEmbed()
