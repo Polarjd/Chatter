@@ -4,6 +4,8 @@ const client = new Discord.Client();
 const ytdl = require("ytdl-core");
 const helpcmd = require('discord.js');
 const PREFIX = 'c!';
+const fs = require("fs");
+const { isBuffer } = require('util');
 const activities_list = [
     "with other bots [c!help]", 
     "with chats [c!help]",
@@ -16,6 +18,25 @@ client.on('ready', () => {
         const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
         client.user.setActivity(activities_list[index]);
     }, 10000);
+});
+
+bot.commands = new Discord.Collection();
+
+fs.readdir("./commands/", (err, files) => {
+
+    if(err) console.log(err);
+
+    let jsfile = files.filter(f => f.split(".").pop() === "js")
+    if(jsfile.length <= 0){
+        console.log("Couldn't find commands.")
+        return;
+    }
+
+    jsfile.forEach((f, i) =>{
+        let props = require(`./commands/${f}`);
+        console.log(`${f} loaded!`);
+        bot.commands.set(prop.help.name, props);
+    });
 });
 
 // Functions
@@ -37,9 +58,20 @@ client.on('ready', () => {
 
 // Commands
 client.on('message', message => {
+
+    if (message.author.bot) return;
+    if (message.content.indexOf(PREFIX) !== 0) return;
+
     let args = message.content.substring(PREFIX.length).split(" ");
 
     switch (args[0]) {
+
+        default:
+            const defaultmsg = new Discord.RichEmbed()
+            .setTitle('This command does not exist!')
+            .addField('Use c!help for a list with all commands')
+            message.channel.sendEmbed(defaultmsg);
+        break;
 
         case "help":
             const helpcmd = new Discord.RichEmbed()
