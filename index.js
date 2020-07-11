@@ -242,10 +242,10 @@ client.on('message', message => {
             if(!message.member.voiceChannel){
                 message.channel.send("Please enter a voice channel.");
             }
-            
+
             var voiceChannel = message.member.voiceChannel
     voiceChannel.join().then(connection => {
-      const dispatcher = connection.playFile('.e:/bot/helloworld.mp3')
+      const dispatcher = connection.playFile('./assets/helloworld.mp3')
       dispatcher.on('end', end => voiceChannel.leave());
     }).catch(err => console.log(err))
         break;
