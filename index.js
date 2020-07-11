@@ -11,10 +11,6 @@ const PREFIX = 'c!';
 
 const { isBuffer } = require('util');
 
-const { promptMessage } = require("../../function.js")
-
-const chooseArr = ["🗻", "📰", "✂️"]
-
 const activities_list = [
     "with [c!help]", 
     "with chats [c!help]", 
