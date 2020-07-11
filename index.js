@@ -239,11 +239,11 @@ client.on('message', message => {
                 message.channel.send("Please enter a voice channel.");
             }
 
-            var voiceChannel = message.member.voiceChannel
+            var voiceChannel = message.member.voice.channel.join()
 
     voiceChannel.join().then(connection => {
       const dispatcher = connection.playFile('./assets/helloworld.mp3')
-      dispatcher.on('end', end => voiceChannel.leave());
+      dispatcher.on('end', end => voice.channel.leave());
     }).catch(err => console.log(err))
         break;
 
