@@ -240,14 +240,12 @@ client.on('message', message => {
             }
 
             var voiceChannel = message.member.voiceChannel
+
     voiceChannel.join().then(connection => {
       const dispatcher = connection.playFile('./assets/helloworld.mp3')
       dispatcher.on('end', end => voiceChannel.leave());
     }).catch(err => console.log(err))
         break;
-
-            
-       
 
     }
 
