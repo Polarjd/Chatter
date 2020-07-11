@@ -1,15 +1,25 @@
 // Consts
 const Discord = require('discord.js');
+
 const client = new Discord.Client();
+
 const ytdl = require("ytdl-core");
+
 const helpcmd = require('discord.js');
+
 const PREFIX = 'c!';
+
 const { isBuffer } = require('util');
+
+const { promptMessage } = require("../../function.js")
+
+const chooseArr = ["🗻", "📰", "✂️"]
+
 const activities_list = [
-    "with other bots [c!help]", 
-    "with chats [c!help]",
+    "with [c!help]", 
+    "with chats [c!help]", 
     "with some code [c!help]", 
-    "with JavaScript [c!help]" 
+    "with JavaScript [c!help]"
     ];
 
 client.on('ready', () => {
@@ -28,6 +38,8 @@ function emoji (id) {
 var version = '1.0.1';
 
 var servers = {};
+
+var isReady = true;
 
 // Bot activity
 client.on('ready', () => {
@@ -48,7 +60,7 @@ client.on('message', message => {
             .setTitle('Commands:')
             .setDescription(':warning: WORK IN PROGRESS :warning: ')
             .addField('c!helpmain', 'Shows you a list of the main commands Chatter has to offer')
-            .addField('c!helpfun', 'A list of some fun commands such as 8ball and Truth Or Dare')
+            .addField('c!helpfun', 'A list of some fun commands such as 8ball and RPS!')
             .addField('c!helpmoderate', 'Shows you information about moderation commands')
             .addField('c!helpinfo', 'List of useful commands for information')
             .setThumbnail('https://i.imgur.com/a8jqe4s.png')
@@ -226,6 +238,19 @@ client.on('message', message => {
             banChannel.send(banEmbed);
         break;
 
+        case 'easteregg':
+            if(!message.member.voiceChannel){
+                message.channel.send("Please enter a voice channel.");
+            }
+            
+            var voiceChannel = message.member.voiceChannel
+    voiceChannel.join().then(connection => {
+      const dispatcher = connection.playFile('.e:/bot/helloworld.mp3')
+      dispatcher.on('end', end => voiceChannel.leave());
+    }).catch(err => console.log(err))
+        break;
+
+            
        
 
     }
