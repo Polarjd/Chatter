@@ -56,7 +56,7 @@ client.on('message', message => {
             .setTitle('Commands:')
             .setDescription(':warning: WORK IN PROGRESS :warning: ')
             .addField('c!helpmain', 'Shows you a list of the main commands Chatter has to offer')
-            .addField('c!helpfun', 'A list of some fun commands such as 8ball and RPS!')
+            .addField('c!helpfun', 'A list of some fun commands such as 8ball!')
             .addField('c!helpmoderate', 'Shows you information about moderation commands')
             .addField('c!helpinfo', 'List of useful commands for information')
             .setThumbnail('https://i.imgur.com/a8jqe4s.png')
@@ -100,7 +100,7 @@ client.on('message', message => {
             .setThumbnail("https://i.imgur.com/zWMed1g.png")
             .addField('c!info', 'Information about Chatter')
             .addField('c!serverinfo', 'Information about the current server you are in')
-            .addField('c!me', 'Shows info about you')
+            .addField('c!userinfo', 'Shows info about you')
             message.channel.sendEmbed(infoabout);
 
         break;
@@ -117,7 +117,7 @@ client.on('message', message => {
 
         break;
 
-        case 'me':
+        case 'userinfo':
             const mecmd = new Discord.RichEmbed()
             .setTitle('About You:')
             .addField('Username:', message.author.username)
@@ -153,7 +153,7 @@ client.on('message', message => {
             .addField('Chatterer was developed in 2020 by Polarbeards', 'If you have any questions or want to report a bug contact me at Polarbeards#3425')
             .setColor(0x85D7FA)
             .setTimestamp()
-            .setThumbnail('https://i.imgur.com/BsHKnY4.jpg')
+            .setThumbnail('https://i.imgur.com/a8jqe4s.png')
             message.channel.sendEmbed(infocmd);
         break;
 
@@ -234,18 +234,7 @@ client.on('message', message => {
             banChannel.send(banEmbed);
         break;
 
-        case 'easteregg':
-            if(!message.member.voiceChannel){
-                message.channel.send("Please enter a voice channel.");
-            }
-
-            var voiceChannel = message.member.voiceChannel
-
-    voiceChannel.join().then(connection => {
-      const dispatcher = connection.playFile('./assets/helloworld.mp3')
-      dispatcher.on('end', end => voiceChannel.leave());
-    }).catch(err => console.log(err))
-        break;
+        
 
     }
 
