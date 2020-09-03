@@ -57,25 +57,12 @@ client.on('message', message => {
             .setDescription(':warning: WORK IN PROGRESS :warning: ')
             .addField('c!helpmain', 'Shows you a list of the main commands Chatter has to offer')
             .addField('c!helpfun', 'A list of some fun commands such as 8ball!')
-            .addField('c!helpmoderate', 'Shows you information about moderation commands')
             .addField('c!helpinfo', 'List of useful commands for information')
             .setThumbnail('https://i.imgur.com/a8jqe4s.png')
             .setColor(0x85D7FA)
             .setTimestamp()
             .setFooter('Made and developed by Polarbeards', 'https://i.imgur.com/0e1XxhT.jpg?1')
             message.channel.sendEmbed(helpcmd);
-        break;
-
-        case 'helpmoderate':
-            const modabout = new Discord.RichEmbed()
-            .setTitle('Moderation with Chatter')
-            .setDescription('You need to create a channel called "Incidents" for Chatter to log all moderation actions.')
-            .setColor(0x85D7FA)
-            .setTimestamp()
-            .setThumbnail("https://i.imgur.com/f2DMrTX.png")
-            .addField('c!kick', 'Kick a specified member')
-            .addField('c!ban', 'Ban a specified member')
-            message.channel.sendEmbed(modabout);
         break;
 
         case 'helpmain':
@@ -158,7 +145,7 @@ client.on('message', message => {
         break;
 
         case 'chat':
-            let replies = ["What is the worst advice you have given?", "What is the worst pickup line you have ever heard?", "If you could be famous, would you want to? Why?", "What are the top three things on your bucket list?", "Where do you see yourself in five years?", "What is your idea of the perfect day?", "Have you ever been stalked on social media?", "What was the last funny video you saw?", "What’s the most useful thing you own?", "What’s your favorite way to waste time?", "Do you have any pets? What are their names?", "What’s the best / worst thing about your work/school?", "If you could have any animal as a pet, what animal would you choose?", "What is the strangest dream you have ever had?", "Where do you spend most of your free time/day?", "How often do you stay up past 3 a.m.?", "What’s your favorite season? Why?", "What was the best period of your life so far? What do you think will be the best period of your entire life?", "What do you do to improve your mood when you are in a bad mood?", "What’s your favorite genre of movie?", "What is the most overrated movie?", "What was the last song you listened to?", "What song always puts you in a good mood?", "What is the longest plane trip you have taken?", "What is your favorite piece of technology that you own?", "What was the best invention of the last 50 years?", "Will technology save the human race or destroy it?", "What foods do you absolutely hate?", "If your mind were an island, what would it look like?", "Time freezes for everyone but you for one day. What do you do?", "A portal to another world opens in front of you. You don’t know how long it will stay open or if you’ll be able to get back after you go through. What do you do?"];
+            let replies = ["PC or Console?", "What's your favourite game?", "Anime or manga?", "What is the worst advice you have given?", "What is the worst pickup line you have ever heard?", "If you could be famous, would you want to? Why?", "What are the top three things on your bucket list?", "Where do you see yourself in five years?", "What is your idea of the perfect day?", "Have you ever been stalked on social media?", "What was the last funny video you saw?", "What’s the most useful thing you own?", "What’s your favorite way to waste time?", "Do you have any pets? What are their names?", "What’s the best / worst thing about your work/school?", "If you could have any animal as a pet, what animal would you choose?", "What is the strangest dream you have ever had?", "Where do you spend most of your free time/day?", "How often do you stay up past 3 a.m.?", "What’s your favorite season? Why?", "What was the best period of your life so far? What do you think will be the best period of your entire life?", "What do you do to improve your mood when you are in a bad mood?", "What’s your favorite genre of movie?", "What is the most overrated movie?", "What was the last song you listened to?", "What song always puts you in a good mood?", "What is the longest plane trip you have taken?", "What is your favorite piece of technology that you own?", "What was the best invention of the last 50 years?", "Will technology save the human race or destroy it?", "What foods do you absolutely hate?", "If your mind were an island, what would it look like?", "Time freezes for everyone but you for one day. What do you do?", "A portal to another world opens in front of you. You don’t know how long it will stay open or if you’ll be able to get back after you go through. What do you do?"];
 
             let result = Math.floor((Math.random() * replies.length));
             let question = args.slice(1).join(" ");
@@ -188,55 +175,55 @@ client.on('message', message => {
 
         break;
 
-        case 'kick':
-            let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-            if(!kUser) message.channel.send("Can't find user");
-            let kReason = args.join(" ").slice(22);
-            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You do not have permission for that");
-            if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot kick that user");
+        //case 'kick':
+        //    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+        //    if(!kUser) message.channel.send("Can't find user");
+        //    let kReason = args.join(" ").slice(22);
+        //    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You do not have permission for that");
+        //    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot kick that user");
 
-            let kickEmbed = new Discord.RichEmbed()
-            .setTitle("Kick")
-            .setColor("#e56b00")
-            .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
-            .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
-            .addField("Kicked In", message.channel)
-            .addField("Time", message.createdAt)
-            .addField("Reason", kReason);
+        //    let kickEmbed = new Discord.RichEmbed()
+        //    .setTitle("Kick")
+        //    .setColor("#e56b00")
+        //    .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
+        //    .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
+        //    .addField("Kicked In", message.channel)
+        //    .addField("Time", message.createdAt)
+        //    .addField("Reason", kReason);
 
-            let kickChannel = message.guild.channels.find(`name`, "incidents");
-            if(!kickChannel) return message.channel.send("Can't find incidents channel");
+        //    let kickChannel = message.guild.channels.find(`name`, "incidents");
+        //    if(!kickChannel) return message.channel.send("Can't find incidents channel");
 
-            message.guild.member(kUser).kick(kReason);
-            kickChannel.send(kickEmbed);
-        break;
+        //    message.guild.member(kUser).kick(kReason);
+        //    kickChannel.send(kickEmbed);
+        //break;
 
-        case 'ban':
-            let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-            if(!bUser) message.channel.send("Can't find user");
-            let bReason = args.join(" ").slice(22);
-            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You do not have permission for that");
-            if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot ban that user");
+        //case 'ban':
+        //    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+        //    if(!bUser) message.channel.send("Can't find user");
+        //    let bReason = args.join(" ").slice(22);
+        //    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You do not have permission for that");
+        //    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot ban that user");
 
-            let banEmbed = new Discord.RichEmbed()
-            .setTitle("Ban")
-            .setColor("#bc0000")
-            .addField("Banned User", `${bUser} with ID ${bUser.id}`)
-            .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
-            .addField("Banned In", message.channel)
-            .addField("Time", message.createdAt)
-            .addField("Reason", bReason);
+        //    let banEmbed = new Discord.RichEmbed()
+        //    .setTitle("Ban")
+        //    .setColor("#bc0000")
+        //    .addField("Banned User", `${bUser} with ID ${bUser.id}`)
+        //    .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
+        //    .addField("Banned In", message.channel)
+        //    .addField("Time", message.createdAt)
+        //    .addField("Reason", bReason);
 
-            let banChannel = message.guild.channels.find(`name`, "incidents");
-            if(!banChannel) return message.channel.send("Can't find incidents channel or permission to the channel");
+        //    let banChannel = message.guild.channels.find(`name`, "incidents");
+        //    if(!banChannel) return message.channel.send("Can't find incidents channel or permission to the channel");
 
-            message.guild.member(bUser).ban(bReason);
-            banChannel.send(banEmbed);
-        break;
+        //    message.guild.member(bUser).ban(bReason);
+        //    banChannel.send(banEmbed);
+        //break;
 
         case "servers":
             const serverscmd = new Discord.RichEmbed()
-            .setTitle(client.guilds.size)
+            .setTitle('Currently in', client.guilds.size)
             message.channel.sendEmbed(serverscmd);
         break;
 
