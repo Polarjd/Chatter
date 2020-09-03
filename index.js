@@ -39,7 +39,7 @@ var isReady = true;
 
 // Bot activity
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
+    console.log(`Logged in as ${client.user.tag}!`, client.guilds.size);
     //client.user.setActivity('out for dead chats [c!help]', {type: "WATCHING"});
   });
 
