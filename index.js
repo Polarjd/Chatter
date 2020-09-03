@@ -39,7 +39,7 @@ var isReady = true;
 
 // Bot activity
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`, client.guilds.size);
+    console.log(`Logged in as ${client.user.tag}!`);
     //client.user.setActivity('out for dead chats [c!help]', {type: "WATCHING"});
   });
 
@@ -232,6 +232,12 @@ client.on('message', message => {
 
             message.guild.member(bUser).ban(bReason);
             banChannel.send(banEmbed);
+        break;
+
+        case "servers":
+            const serverscmd = new Discord.RichEmbed()
+            .setTitle(client.guilds.size)
+            message.channel.sendEmbed(serverscmd);
         break;
 
         
