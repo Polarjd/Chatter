@@ -61,7 +61,7 @@ client.on('message', async message => {
             .setThumbnail('https://i.imgur.com/a8jqe4s.png')
             .setColor(0x85D7FA)
             .setTimestamp()
-            .setFooter('Made and developed by Polarbeards', 'https://i.imgur.com/0e1XxhT.jpg?1')
+            .setFooter('https://www.patreon.com/chatterbot', 'https://i.imgur.com/1EKSIoz.png')
             message.channel.sendEmbed(helpcmd);
         break;
 
@@ -74,6 +74,7 @@ client.on('message', async message => {
             .setThumbnail("https://i.imgur.com/ncivXNx.png")
             .addField('.chat', 'Comes up with a conversation starter')
             .addField('.help', 'Shows you all command categories')
+            .addField('.ping', 'How fast is Chatter?')
             message.channel.sendEmbed(mainabout);
 
         break;
@@ -88,6 +89,7 @@ client.on('message', async message => {
             .addField('.info', 'Information about Chatter')
             .addField('.serverinfo', 'Information about the current server you are in')
             .addField('.userinfo', 'Shows info about you')
+            .setFooter('https://www.patreon.com/chatterbot', 'https://i.imgur.com/1EKSIoz.png')
             message.channel.sendEmbed(infoabout);
 
         break;
@@ -136,11 +138,12 @@ client.on('message', async message => {
             const infocmd = new Discord.RichEmbed()
             .setTitle('<:Bot_Mascot:730808702650548326> Chatter <:Bot_Mascot:730808702650548326>')
             .setURL('')
-            .addField('Chatter is a bot with the main purpose of reviving chats.', 'but the bot also have other cool features such as 8ball!')
-            .addField('Chatterer was developed in 2020 by Polarbeards', 'If you have any questions or want to report a bug contact me at Polarbeards#3425')
+            .addField('Chatter is a bot with the main purpose of reviving chats.', 'But the bot also have other cool features such as 8ball!')
+            .addField('Chatterer was developed in 2020 by Polar', 'If you have any questions or want to report a bug contact me at Polar#3425')
             .setColor(0x85D7FA)
             .setTimestamp()
             .setThumbnail('https://i.imgur.com/a8jqe4s.png')
+            .setFooter('https://www.patreon.com/chatterbot', 'https://i.imgur.com/1EKSIoz.png')
             message.channel.sendEmbed(infocmd);
         break;
 
