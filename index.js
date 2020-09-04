@@ -45,7 +45,7 @@ client.on('ready', () => {
 
 
 // Commands
-client.on('message', message => {
+client.on('message', async message => {
 
     let args = message.content.substring(PREFIX.length).split(" ");
 
