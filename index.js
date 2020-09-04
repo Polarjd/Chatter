@@ -176,12 +176,9 @@ client.on('message', message => {
         break;
 
         case 'ping':
-            message.channel.send("Pinging...").then(m =>{
-                var ping = m.createdTimestamp - message.createdTimestamp;
-                var botPing = Math.round(bot.pi);
-    
-                m.edit(`**:ping_pong: Pong! Your Ping Is:-**\n  ${ping}ms`);
-            });
+            const msg = await message.channel.send(`:ping_pong:Pinging...`);
+
+            msg.edit(`:ping_pong: Pong\nLatency is ${Math.floor(msg.createdAt - message.createdAt)}ms\nAPI Latency${Math.round(client.ping)}ms`);
 
         break;
 
