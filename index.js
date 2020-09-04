@@ -223,7 +223,7 @@ client.on('message', message => {
 
         case "servers":
             const serverscmd = new Discord.RichEmbed()
-            .setTitle('Currently in', client.guilds.size, 'servers')
+            .setTitle(client.guilds.size)
             message.channel.sendEmbed(serverscmd);
         break;
 
