@@ -7,15 +7,15 @@ const ytdl = require("ytdl-core");
 
 const helpcmd = require('discord.js');
 
-const PREFIX = 'c!';
+const PREFIX = '.';
 
 const { isBuffer } = require('util');
 
 const activities_list = [
-    "with [c!help]", 
-    "with chats [c!help]", 
-    "with some code [c!help]", 
-    "with JavaScript [c!help]"
+    "with servers [.help]", 
+    "with chats [.help]", 
+    "with some code [.help]", 
+    "with JavaScript [.help]"
     ];
 
 client.on('ready', () => {
@@ -55,9 +55,9 @@ client.on('message', message => {
             const helpcmd = new Discord.RichEmbed()
             .setTitle('Commands:')
             .setDescription(':warning: WORK IN PROGRESS :warning: ')
-            .addField('c!helpmain', 'Shows you a list of the main commands Chatter has to offer')
-            .addField('c!helpfun', 'A list of some fun commands such as 8ball!')
-            .addField('c!helpinfo', 'List of useful commands for information')
+            .addField('.helpmain', 'Shows you a list of the main commands Chatter has to offer')
+            .addField('.helpfun', 'A list of some fun commands such as 8ball!')
+            .addField('.helpinfo', 'List of useful commands for information')
             .setThumbnail('https://i.imgur.com/a8jqe4s.png')
             .setColor(0x85D7FA)
             .setTimestamp()
@@ -72,8 +72,8 @@ client.on('message', message => {
             .setColor(0x85D7FA)
             .setTimestamp()
             .setThumbnail("https://i.imgur.com/ncivXNx.png")
-            .addField('c!chat', 'Comes up with a conversation starter')
-            .addField('c!help', 'Shows you all command categories')
+            .addField('.chat', 'Comes up with a conversation starter')
+            .addField('.help', 'Shows you all command categories')
             message.channel.sendEmbed(mainabout);
 
         break;
@@ -85,9 +85,9 @@ client.on('message', message => {
             .setColor(0x85D7FA)
             .setTimestamp()
             .setThumbnail("https://i.imgur.com/zWMed1g.png")
-            .addField('c!info', 'Information about Chatter')
-            .addField('c!serverinfo', 'Information about the current server you are in')
-            .addField('c!userinfo', 'Shows info about you')
+            .addField('.info', 'Information about Chatter')
+            .addField('.serverinfo', 'Information about the current server you are in')
+            .addField('.userinfo', 'Shows info about you')
             message.channel.sendEmbed(infoabout);
 
         break;
@@ -99,7 +99,7 @@ client.on('message', message => {
             .setColor(0x85D7FA)
             .setTimestamp()
             .setThumbnail("https://i.imgur.com/hghSEYj.png")
-            .addField('c!8ball', 'Chatter will answer your questions!')
+            .addField('.8ball', 'Chatter will answer your questions!')
             message.channel.sendEmbed(funabout);
 
         break;
