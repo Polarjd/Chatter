@@ -175,6 +175,16 @@ client.on('message', message => {
 
         break;
 
+        case 'ping':
+            message.channel.send("Pinging...").then(m =>{
+                var ping = m.createdTimestamp - message.createdTimestamp;
+                var botPing = Math.round(bot.pi);
+    
+                m.edit(`**:ping_pong: Pong! Your Ping Is:-**\n  ${ping}ms`);
+            });
+
+        break;
+
         //case 'kick':
         //    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         //    if(!kUser) message.channel.send("Can't find user");
