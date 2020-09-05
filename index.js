@@ -50,7 +50,6 @@ client.on('ready', () => {
 client.on('message', async message => {
     if (message.author.bot || !message.content.startsWith(PREFIX)) return;
 
-    let args = message.content.substring(PREFIX.length).split(" ");
     const args = message.content.slice(PREFIX.length).split(/ +/g);
 
     switch (args[0].toLowerCase()) {
