@@ -25,6 +25,8 @@ client.on('ready', () => {
     }, 10000);
 });
 
+const cooldown = new Set();
+
 //Let
 
 
@@ -165,19 +167,28 @@ client.on('message', async message => {
         break;
 
         case '8ball':
-            if(!args[1]) return message.reply("Please ask a full question");
-            let answers = ["Yes", "No", "I don't know", "Ask again later", "Maybe"];
+            if(cooldown.has(message.author.id)){
+                message.reply("Please wait 5 seconds before using `8ball` again")
+            } else{
+                if(!args[1]) return message.reply("Please ask a full question");
+                    let answers = ["Yes", "No", "I don't know", "Ask again later", "Maybe"];
 
-            let results = Math.floor((Math.random() * answers.length));
-            let questions = args.slice(1).join(" ");
+                    let results = Math.floor((Math.random() * answers.length));
+                    let questions = args.slice(1).join(" ");
 
-            let ballembed = new Discord.RichEmbed()
-            .setAuthor(message.author.tag)
-            .setColor("0x85D7FA")
-            .addField("Question", questions)
-            .addField("Answer", answers[results]);
+                    let ballembed = new Discord.RichEmbed()
+                    .setAuthor(message.author.tag)
+                    .setColor("0x85D7FA")
+                    .addField("Question", questions)
+                    .addField("Answer", answers[results]);
 
             message.channel.send(ballembed);
+
+            cooldown.add(message.author.id);
+            setTimeout(() => {
+                cooldown.delete(message.author.id)
+            }, 5000);
+            }
 
         break;
 
