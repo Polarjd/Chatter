@@ -65,7 +65,6 @@ client.on('message', async message => {
             .setColor(0x85D7FA)
             .setTimestamp()
             .setFooter('patreon.com/chatterbot', 'https://i.imgur.com/1EKSIoz.png')
-            .set
             message.channel.sendEmbed(helpcmd);
         break;
 
