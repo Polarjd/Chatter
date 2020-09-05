@@ -249,7 +249,7 @@ client.on('message', async message => {
 
         case 'invite':
             const invitecmd = new Discord.RichEmbed()
-            .setTitle('Here you can invite and vote!')
+            .setTitle('Chatter on top.gg')
             .setURL('https://top.gg/bot/654017184565035019/vote')
             .addField('Invite','*Click "invite" to invite chatterto your own server*')
             .addField('Vote', '*Click "vote" to vote for chatter*')
