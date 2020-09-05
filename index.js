@@ -52,15 +52,15 @@ client.on('ready', () => {
 // Commands
 client.on('message', async message => {
 
-    let args = message.content.substring(PREFIX.length).split(" ");
+    if(!message.content.startsWith(prefix)) return;
+        if(cooldown.has(message.author.id)){
+            const cooldownembed= new Discord.RichEmbed()
+            .setTitle('Please wait 5 seconds between commands')
+            .setFooter('Upvote Chatter', )
+            return message.channel.sendEmbed(cooldownembed);
+}
 
-        //if(!message.content.startsWith(prefix)) return;
-        //if(cooldown.has(message.author.id)){
-        //    const cooldownembed= new Discord.RichEmbed()
-        //    .setTitle('Please wait 5 seconds between commands')
-        //    .setFooter('Upvote Chatter', )
-        //    message.reply.sendEmbed(cooldownembed);
-//}
+    let args = message.content.substring(PREFIX.length).split(" ");
 
     switch (args[0]) {
 
@@ -74,7 +74,7 @@ client.on('message', async message => {
             .setThumbnail('https://i.imgur.com/a8jqe4s.png')
             .setColor(0x85D7FA)
             .setTimestamp()
-            .setFooter('[Support Chatter](https://www.patreon.com/chatterbot)', 'https://i.imgur.com/1EKSIoz.png')
+            .setFooter('patreon.com/chatterbot', 'https://i.imgur.com/1EKSIoz.png')
             .set
             message.channel.sendEmbed(helpcmd);
         break;
