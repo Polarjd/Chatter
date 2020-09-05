@@ -9,6 +9,8 @@ const helpcmd = require('discord.js');
 
 const PREFIX = '.';
 
+const fs = require('fs');
+
 const { isBuffer } = require('util');
 
 const activities_list = [
@@ -26,6 +28,16 @@ client.on('ready', () => {
 });
 
 const cooldown = new Set();
+
+//cmd handler
+client.commands = new Discord.Collection();
+
+const commandFiles =fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+for (const file of commandFiles){
+    const command = require(`./commands/${file}`);
+
+    client.commands.set(command.name, command);
+}
 
 //Let
 
@@ -193,9 +205,7 @@ client.on('message', async message => {
         break;
 
         case 'ping':
-            const msg = await message.channel.send(`:ping_pong:Pinging...`);
-
-            msg.edit(`:ping_pong: Pong\nLatency is ${Math.floor(msg.createdAt - message.createdAt)}ms\nAPI Latency${Math.round(client.ping)}ms`);
+            client.commands.get('ping').execute(message.args);
 
         break;
 
