@@ -53,13 +53,10 @@ client.on('ready', () => {
 client.on('message', async message => {
 
     if(!message.content.startsWith(prefix)) return;
-        if(cooldown.has(message.author.id)){
-            const cooldownembed= new Discord.RichEmbed()
-            .setTitle('Please wait 5 seconds between commands')
-            .setFooter('Upvote Chatter', )
-            message.channel.sendEmbed(cooldownembed);
+    if(cooldown.has(message.author.id)){
+        return message.reply("Please wait 5 seconds beforeusing this command again")
 }
-break;
+
 
     let args = message.content.substring(PREFIX.length).split(" ");
 
