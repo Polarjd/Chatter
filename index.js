@@ -25,6 +25,11 @@ client.on('ready', () => {
     }, 10000);
 });
 
+//Let
+let cooldown= new Set();
+
+let cdseconds = 5;
+
 // Functions
 function emoji (id) {
     return client.emojis.get(id).toString();
@@ -45,6 +50,14 @@ client.on('ready', () => {
 
 
 // Commands
+if(!message.content.startsWith(prefix)) return;
+if(cooldown.has(message.author.id)){
+    const cooldownembed= new Discord.RichEmbed()
+    .setTitle('Please wait 5 seconds between commands')
+    .setFooter('Upvote Chatter', )
+    message.reply.sendEmbed(cooldownembed);
+}
+
 client.on('message', async message => {
 
     let args = message.content.substring(PREFIX.length).split(" ");
@@ -61,7 +74,8 @@ client.on('message', async message => {
             .setThumbnail('https://i.imgur.com/a8jqe4s.png')
             .setColor(0x85D7FA)
             .setTimestamp()
-            .setFooter('https://www.patreon.com/chatterbot', 'https://i.imgur.com/1EKSIoz.png')
+            .setFooter('[Support Chatter](https://www.patreon.com/chatterbot)', 'https://i.imgur.com/1EKSIoz.png')
+            .set
             message.channel.sendEmbed(helpcmd);
         break;
 
@@ -89,7 +103,7 @@ client.on('message', async message => {
             .addField('.info', 'Information about Chatter')
             .addField('.serverinfo', 'Information about the current server you are in')
             .addField('.userinfo', 'Shows info about you')
-            .setFooter('https://www.patreon.com/chatterbot', 'https://i.imgur.com/1EKSIoz.png')
+            .setFooter('patreon.com/chatterbot', 'https://i.imgur.com/1EKSIoz.png')
             message.channel.sendEmbed(infoabout);
 
         break;
@@ -143,7 +157,7 @@ client.on('message', async message => {
             .setColor(0x85D7FA)
             .setTimestamp()
             .setThumbnail('https://i.imgur.com/a8jqe4s.png')
-            .setFooter('https://www.patreon.com/chatterbot', 'https://i.imgur.com/1EKSIoz.png')
+            .setFooter('patreon.com/chatterbot', 'https://i.imgur.com/1EKSIoz.png')
             message.channel.sendEmbed(infocmd);
         break;
 
