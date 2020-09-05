@@ -52,19 +52,6 @@ client.on('ready', () => {
 // Commands
 client.on('message', async message => {
 
-    if(!message.content.startsWith(prefix)) return;
-    if(cooldown.has(message.author.id)){
-        return message.reply("Please wait 5 seconds before using this command again")
-    }
-    //if(!message.member.hasPermission("ADMINISTRATOR")){
-    //    cooldown.add(message.author.id);
-    //}
-
-    setTimeout(() => {
-        cooldown.delete(message.author.id)
-    }, cdseconds * 1000)
-
-
     let args = message.content.substring(PREFIX.length).split(" ");
 
     switch (args[0]) {
