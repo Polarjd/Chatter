@@ -57,8 +57,9 @@ client.on('message', async message => {
             const cooldownembed= new Discord.RichEmbed()
             .setTitle('Please wait 5 seconds between commands')
             .setFooter('Upvote Chatter', )
-            return message.channel.sendEmbed(cooldownembed);
+            message.channel.sendEmbed(cooldownembed);
 }
+break;
 
     let args = message.content.substring(PREFIX.length).split(" ");
 
