@@ -26,9 +26,7 @@ client.on('ready', () => {
 });
 
 //Let
-let cooldown= new Set();
 
-let cdseconds = 5;
 
 // Functions
 function emoji (id) {
