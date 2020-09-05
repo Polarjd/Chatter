@@ -57,9 +57,9 @@ client.on('message', async message => {
             const helpcmd = new Discord.RichEmbed()
             .setTitle('Commands:')
             .setDescription(':warning: WORK IN PROGRESS :warning: ')
-            .addField('.helpmain', 'Shows you a list of the main commands Chatter has to offer')
-            .addField('.helpfun', 'A list of some fun commands such as 8ball!')
-            .addField('.helpinfo', 'List of useful commands for information')
+            .addField('.helpmain', '*Shows you a list of the main commands Chatter has to offer*')
+            .addField('.helpfun', '*A list of some fun commands such as 8ball!*')
+            .addField('.helpinfo', '*List of useful commands for information*')
             .setThumbnail('https://i.imgur.com/a8jqe4s.png')
             .setColor(0x85D7FA)
             .setTimestamp()
@@ -74,9 +74,9 @@ client.on('message', async message => {
             .setColor(0x85D7FA)
             .setTimestamp()
             .setThumbnail("https://i.imgur.com/ncivXNx.png")
-            .addField('.chat', 'Comes up with a conversation starter')
-            .addField('.help', 'Shows you all command categories')
-            .addField('.ping', 'How fast is Chatter?')
+            .addField('.chat', '*Comes up with a conversation starter*')
+            .addField('.help', '*Shows you all command categories*')
+            .addField('.ping', '*How fast is Chatter?*')
             message.channel.sendEmbed(mainabout);
 
         break;
@@ -88,9 +88,9 @@ client.on('message', async message => {
             .setColor(0x85D7FA)
             .setTimestamp()
             .setThumbnail("https://i.imgur.com/zWMed1g.png")
-            .addField('.info', 'Information about Chatter')
-            .addField('.serverinfo', 'Information about the current server you are in')
-            .addField('.userinfo', 'Shows info about you')
+            .addField('.info', '*Information about Chatter*')
+            .addField('.serverinfo', '*Information about the current server you are in*')
+            .addField('.userinfo', '*Shows info about you*')
             .setFooter('patreon.com/chatterbot', 'https://i.imgur.com/1EKSIoz.png')
             message.channel.sendEmbed(infoabout);
 
@@ -103,7 +103,7 @@ client.on('message', async message => {
             .setColor(0x85D7FA)
             .setTimestamp()
             .setThumbnail("https://i.imgur.com/hghSEYj.png")
-            .addField('.8ball', 'Chatter will answer your questions!')
+            .addField('.8ball', '*Chatter will answer your questions!*')
             message.channel.sendEmbed(funabout);
 
         break;
@@ -140,8 +140,8 @@ client.on('message', async message => {
             const infocmd = new Discord.RichEmbed()
             .setTitle('<:Bot_Mascot:730808702650548326> Chatter <:Bot_Mascot:730808702650548326>')
             .setURL('')
-            .addField('Chatter is a bot with the main purpose of reviving chats.', 'But the bot also have other cool features such as 8ball!')
-            .addField('Chatterer was developed in 2020 by Polar', 'If you have any questions or want to report a bug contact me at Polar#3425')
+            .addField('Chatter is a bot with the main purpose of reviving chats.', '*But the bot also have other cool features such as 8ball!*')
+            .addField('Chatterer was developed in 2020 by Polar', '*If you have any questions or want to report a bug contact me at Polar#3425*')
             .setColor(0x85D7FA)
             .setTimestamp()
             .setThumbnail('https://i.imgur.com/a8jqe4s.png')
@@ -251,8 +251,8 @@ client.on('message', async message => {
             const invitecmd = new Discord.RichEmbed()
             .setTitle('Chatter on top.gg')
             .setURL('https://top.gg/bot/654017184565035019/vote')
-            .addField('Invite','*Click "invite" to invite chatterto your own server*')
-            .addField('Vote', '*Click "vote" to vote for chatter*')
+            .addField('Invite','*Click "invite" to invite Chatter to your own server*')
+            .addField('Vote', '*Click "vote" to vote for Chatter*')
             .setColor(0x85D7FA)
             .setTimestamp()
             .setFooter('patreon.com/chatterbot', 'https://i.imgur.com/1EKSIoz.png')
