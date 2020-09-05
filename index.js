@@ -50,17 +50,17 @@ client.on('ready', () => {
 
 
 // Commands
-if(!message.content.startsWith(prefix)) return;
-if(cooldown.has(message.author.id)){
-    const cooldownembed= new Discord.RichEmbed()
-    .setTitle('Please wait 5 seconds between commands')
-    .setFooter('Upvote Chatter', )
-    message.reply.sendEmbed(cooldownembed);
-}
-
 client.on('message', async message => {
 
     let args = message.content.substring(PREFIX.length).split(" ");
+
+        if(!message.content.startsWith(prefix)) return;
+        if(cooldown.has(message.author.id)){
+            const cooldownembed= new Discord.RichEmbed()
+            .setTitle('Please wait 5 seconds between commands')
+            .setFooter('Upvote Chatter', )
+            message.reply.sendEmbed(cooldownembed);
+}
 
     switch (args[0]) {
 
