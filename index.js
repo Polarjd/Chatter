@@ -57,7 +57,6 @@ client.on('message', async message => {
         case "help":
             const helpcmd = new Discord.RichEmbed()
             .setTitle('Commands:')
-            .setDescription(':warning: WORK IN PROGRESS :warning: ')
             .addField('.helpmain', '*Shows you a list of the main commands Chatter has to offer*')
             .addField('.helpfun', '*A list of some fun commands such as 8ball!*')
             .addField('.helpinfo', '*List of useful commands for information*')
