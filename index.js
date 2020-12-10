@@ -41,7 +41,7 @@ var isReady = true;
 
 // Bot activity
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}. Currently used in ${client.guilds.cache.size} servers by ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)} users`);
+    console.log(`Logged in as ${client.user.tag}. Currently used in ${client.guilds.size} servers by ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)} users`);
     //client.user.setActivity('out for dead chats [c!help]', {type: "WATCHING"});
   });
 
@@ -245,7 +245,7 @@ client.on('message', async message => {
         case "servers":
             const serverscmd = new Discord.RichEmbed()
             .setTitle("Info")
-            .addField("Servers:", `${client.guilds.cache.size}`)
+            .addField("Servers:", `${client.guilds.size}`)
             .addField("Users:", `${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}`)
             message.channel.sendEmbed(serverscmd);
         break;
